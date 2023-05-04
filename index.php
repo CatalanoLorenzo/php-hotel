@@ -5,45 +5,8 @@ Dopo aggiungete Bootstrap e mostrate le informazioni con una tabella.
 Bonus: 1
 Aggiungere un form ad inizio pagina che tramite una richiesta GET permetta di filtrare gli hotel che hanno un parcheggio.
 Aggiungere un secondo campo al form che permetta di filtrare gli hotel per voto (es. inserisco 3 ed ottengo tutti gli hotel che hanno un voto di tre stelle o superiore) -->
-<?php 
-$hotels = [
-    [
-        'name' => 'Hotel Belvedere',
-        'description' => 'Hotel Belvedere Descrizione',
-        'parking' => true,
-        'vote' => 4,
-        'distance_to_center' => 10.4
-    ],
-    [
-        'name' => 'Hotel Futuro',
-        'description' => 'Hotel Futuro Descrizione',
-        'parking' => true,
-        'vote' => 2,
-        'distance_to_center' => 2
-    ],
-    [
-        'name' => 'Hotel Rivamare',
-        'description' => 'Hotel Rivamare Descrizione',
-        'parking' => false,
-        'vote' => 1,
-        'distance_to_center' => 1
-    ],
-    [
-        'name' => 'Hotel Bellavista',
-        'description' => 'Hotel Bellavista Descrizione',
-        'parking' => false,
-        'vote' => 5,
-        'distance_to_center' => 5.5
-    ],
-    [
-        'name' => 'Hotel Milano',
-        'description' => 'Hotel Milano Descrizione',
-        'parking' => true,
-        'vote' => 2,
-        'distance_to_center' => 50
-    ],
+<?php
 
-];
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,42 +28,24 @@ $hotels = [
             <div class="col">
                 <form action="control.php" method="GET">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="true" id="isParking">
-                      <label class="form-check-label" for="isParking">
-                        there is parking
-                      </label>
+                        <input class="form-check-input" type="checkbox" name="isParking" value="true" id="isParking">
+                        <label class="form-check-label" for="isParking">
+                            Parking
+                        </label>
                     </div>
+                    <select name="vote" id="vote">
+                        <option value="0">0/5</option>
+                        <option value="1">1/5</option>
+                        <option value="2">2/5</option>
+                        <option value="3">3/5</option>
+                        <option value="4">4/5</option>
+                        <option value="5">5/5</option>
+                    </select>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
-                
-            </div>
-            <div class="col-8">
-                <div class="table-responsive">
 
-                    <div class="table-responsive">
-                        <table class="table table-primary">
-                            <thead>
-                                <th scope="col"> </th>
-                                <?php foreach ($hotels[0] as $key => $value) : ?>
-                                    <th scope="col"><?= $key ?> </th>
-                                <?php endforeach ?>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($hotels as $hotel) : ?>
-                                    <tr class="">
-                                        <td scope="row">Hotel</td>
-                                        <?php foreach ($hotel as $key => $value) : ?>
-                                            <td><?= $value ?></td>
-                                        <?php endforeach ?>
-                                    </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
             </div>
+
         </div>
     </div>
     <!-- Bootstrap JavaScript Libraries -->
