@@ -5,10 +5,8 @@ Dopo aggiungete Bootstrap e mostrate le informazioni con una tabella.
 Bonus: 1
 Aggiungere un form ad inizio pagina che tramite una richiesta GET permetta di filtrare gli hotel che hanno un parcheggio.
 Aggiungere un secondo campo al form che permetta di filtrare gli hotel per voto (es. inserisco 3 ed ottengo tutti gli hotel che hanno un voto di tre stelle o superiore) -->
-<?php
-
+<?php 
 $hotels = [
-
     [
         'name' => 'Hotel Belvedere',
         'description' => 'Hotel Belvedere Descrizione',
@@ -46,18 +44,6 @@ $hotels = [
     ],
 
 ];
-/*  Prima stampate in pagina i dati, senza preoccuparvi dello stile.*/
-/* var_dump($hotels);
-
-foreach ($hotels as $hotel) {
-    foreach ($hotel as $key => $value) {
-        
-        var_dump($hotel);
-
-        echo ($key . ' = ' . $value);
-    }
-} */
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -76,6 +62,18 @@ foreach ($hotels as $hotel) {
 <body>
     <div class="container">
         <div class="row">
+            <div class="col">
+                <form action="control.php" method="GET">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="true" id="isParking">
+                      <label class="form-check-label" for="isParking">
+                        there is parking
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                
+            </div>
             <div class="col-8">
                 <div class="table-responsive">
 
